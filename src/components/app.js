@@ -7,15 +7,15 @@ const refs = {
   minute: document.querySelector('.minutes'),
   currentTime: document.querySelector('.currentTime'),
 };
-var a = moment();
-var b = moment([2020, 0, 1]);
+let a = moment();
+let b = moment([2020, 0, 1]);
 
 function newTime() {
-    refs.happy.textContent = moment().format();
+    refs.happy.textContent = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
     refs.day.textContent = `${b.diff(a, 'days')} дней`;
     refs.hour.textContent = `${b.diff(a, 'hours')} часов`;
-    refs.minute.textContent = `${b.diff(a, 'minutes')} минут`;
-  let date = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
+    refs.minute.textContent = `${b.diff(a, 'seconds')} минут`;
+  // let date = moment().format();
 }
 const dateId = window.setInterval(newTime, 500);
 // console.log(dateId);
