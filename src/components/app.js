@@ -7,16 +7,14 @@ const refs = {
   minute: document.querySelector('.minutes'),
   currentTime: document.querySelector('.currentTime'),
 };
-let a = moment();
-let b = moment([2020, 0, 1]);
+let targetTime = moment([2020, 0, 1]);
 
 function newTime() {
-    refs.happy.textContent = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
-    refs.day.textContent = `${b.diff(a, 'days')} дней`;
-    refs.hour.textContent = `${b.diff(a, 'hours')} часов`;
-    refs.minute.textContent = `${b.diff(a, 'seconds')} минут`;
+  let currentTime = moment();
+  refs.happy.textContent = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
+  refs.day.textContent = `${targetTime.diff(currentTime, 'days')} дней`;
+  refs.hour.textContent = `${targetTime.diff(currentTime, 'hours')} часов`;
+  refs.minute.textContent = `${targetTime.diff(currentTime, 'minutes')} минут`;
   // let date = moment().format();
 }
-const dateId = window.setInterval(newTime, 500);
-// console.log(dateId);
-// refs.currentTime.textContent = dateId;
+window.setInterval(newTime, 500);
